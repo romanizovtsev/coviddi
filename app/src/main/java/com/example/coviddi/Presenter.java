@@ -54,10 +54,10 @@ public class Presenter {
         this.view=view1;
         model=new model(this);
     }
-    public void attachView(MainActivity mainActivity) {
+    /*public void attachView(MainActivity mainActivity) {
         view = mainActivity;
 
-    }
+    }*/
     public void detachView() {
         view = null;
     }
