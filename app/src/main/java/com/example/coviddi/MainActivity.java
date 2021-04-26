@@ -1,6 +1,8 @@
     package com.example.coviddi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.pm.ActivityInfo;
+import android.util.Log;
 import android.view.View.OnClickListener;
 import android.content.Intent;
 import android.os.Bundle;
@@ -31,6 +33,7 @@ public class MainActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.startactivity);
         DataDbHelper dh=new DataDbHelper(this);
+        setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         button_settings=(ImageButton)findViewById(R.id.Settings_Button);
         Read_info=(Button)findViewById(R.id.onfoBut);
@@ -130,5 +133,12 @@ public class MainActivity extends AppCompatActivity  {
         //Засекаем время нажатия на кнопку
         backPressedTime=System.currentTimeMillis();
     }
+
+    @Override
+    public void onDestroy() {
+        presenter.onDestroy();
+        super.onDestroy();
+    }
+
 
 }

@@ -43,9 +43,6 @@ import retrofit2.Response;
 import static java.lang.Math.abs;
 
 public class Presenter {
-    ImageButton button_settings;
-    Button Read_info;
-    Button Start_test;
     private MainActivity view;
     private final model model;
 
@@ -224,4 +221,10 @@ public void loadInfoGraph(int selected)
         model.getInfoToday(country,"deaths",formatForDateNow.format(DateYers));
 
     }*/
+
+    public void onDestroy() {
+        this.view=null;
+    }
+
+
 }
